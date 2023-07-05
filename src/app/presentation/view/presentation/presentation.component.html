@@ -1,0 +1,90 @@
+<div class="card">
+  <p-menubar [model]="items"></p-menubar>
+
+</div>
+
+
+<!-- ABOUT DIALOG-->
+<div>
+  <p-dialog header="Header" [(visible)]="visibleAbout" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+      <span class="text-xl font-bold">Hastable app with Angular </span>
+    </ng-template>
+    <p>
+      Welcome to rahma's angular app !
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="Animate();visibleAbout = false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>
+
+<!-- SIZE DIALOG-->
+
+<div>
+  <p-dialog header="Header" [(visible)]="visibleNewTable" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+      <span class="text-xl font-bold">Create new hashtable</span>
+    </ng-template>
+    <p>
+      Welcome to rahma's angular app !
+    </p>
+    <div class="card flex justify-content-center">
+      <input pInputText pKeyFilter="int" placeholder="Integers" [(ngModel)]="size" />
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="onDrawTable()" label="create" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-check" (click)="visibleNewTable = false" label="cancel" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>
+
+<!-- Name DIALOG-->
+
+<div>
+  <p-dialog header="Header" [(visible)]="visibleAdd" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+      <span class="text-xl font-bold">ADD </span>
+    </ng-template>
+    <p>
+      Enter Name
+    </p>
+    <div class="card flex justify-content-center">
+      <input pInputText pKeyFilter="string" placeholder="Enter Name" [(ngModel)]="name" />
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="draw(); visibleAdd=false" label="Add" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-check" (click)="visibleAdd = false" label="cancel" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>
+
+<!-- REMOVE DIALOG-->
+<div>
+<p-dialog header="Header" [(visible)]="visibleRemove" [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <span class="text-xl font-bold">Remove </span>
+  </ng-template>
+  <p>
+    ARE YOU SURE TO REMOVE THIS NODE
+  </p>
+
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)=" onDrawAfterRemove()" label="Remove" styleClass="p-button-text"></p-button>
+    <p-button icon="pi pi-check" (click)="visibleRemove = false" label="Cancel" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+</div>
+
+
+
+
+<body>
+<canvas #canvas></canvas>
+
+</body>
+
+
+
